@@ -1,0 +1,26 @@
+{
+    "status": 200,
+    "success": true,
+    "message": "리뷰 조회 성공",
+    "data": [{
+        "totalAverage": 3.5,
+        "reviewImage": "https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%EA%B0%80%EA%B5%AC#",
+        "comment":  "튼튼해서 정말 좋아요 다른분들도 한번 사용해보시면 좋을거 같아요.",
+        "createdAt": "2022-05-21T14:46:00.000Z"
+    }, {
+        "totalAverage": 5,
+        "reviewImage": "https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%EA%B0%80%EA%B5%AC#",
+        "comment":  "튼튼해서 정말 좋아요 다른분들도 한번 사용해보시면 좋을거 같아요.",
+        "createdAt": "2022-05-21T14:47:00.000Z"
+    }, {
+        "totalAverage": 4.5,
+        "reviewImage": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEyMjFfMTEy%2FMDAxNjQwMDg4OTY1MDk4.ut76MNyIXp9e_hC4XoTfAjYKf3fk5cWXmZtKrCuv7eYg.tGqVunqENGLymUZFksmPoDJuz-dgu86hZefpAadg4U4g.JPEG.idgodhappy%2F20211220025238_IMG_0565.JPG&type=a340",
+        "comment":  "튼튼해서 정말 좋아요 다른분들도 한번 사용해보시면 좋을거 같아요.",
+        "createdAt": "2022-05-21T14:48:00.000Z"
+    }, {
+        "totalAverage": 3,
+        "reviewImage": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMDNfMjgz%2FMDAxNjMzMjY3NDU5NTMy.Pa3apAEZ3R46rQKh6S8aQfka0M22dUI3qIe1Loulvjwg.RvERH9LA7sgab2g2UoUH3rXnEDVwKQLJDWoWXVUbalIg.JPEG.kyensu211%2FIMG_0673.jpg&type=a340",
+        "comment":  "튼튼해서 정말 좋아요 다른분들도 한번 사용해보시면 좋을거 같아요.",
+        "createdAt": "2022-05-21T14:49:00.000Z"
+    }]
+}
