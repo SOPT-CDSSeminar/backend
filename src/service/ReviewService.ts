@@ -37,3 +37,8 @@ const getReviews = async (
     throw error;
   }
 };
+
+export default {
+  createReview,
+  getReviews,
+};
