@@ -40,6 +40,21 @@ const getSortedReviews = async (sort: string): Promise<ReviewResponseDto[] | nul
     }
 }
 
+const createReview = async (reviewCreateDto: ReviewCreateDto): Promise<PostBaseResponseDto> => {
+    try {
+        const review = new Review(reviewCreateDto);
+        await review.save();
+        const data = {
+            _id: review.id
+        };
+        return data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
 export default {
-    getSortedReviews
+    getSortedReviews,
+    createReview
 }
