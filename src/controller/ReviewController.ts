@@ -40,3 +40,39 @@ const createReview = async (req: Request, res: Response) => {
       );
   }
 };
+
+declare function isValidatedParam(param: string): param is "new" | "popular";
+
+const getReviews = async (req: Request, res: Response) => {
+  const { params } = req.params;
+
+  try {
+    if (isValidatedParam(params)) {
+      const data = await ReviewService.getReviews(params);
+      res
+        .status(statusCode.OK)
+        .send(
+          BaseResponse.success(statusCode.OK, message.READ_REVIEW_SUCCESS, data)
+        );
+    } else {
+      return res
+        .status(statusCode.BAD_REQUEST)
+        .send(BaseResponse.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
+    }
+  } catch (error) {
+    console.log(error);
+    res
+      .status(statusCode.INTERNAL_SERVER_ERROR)
+      .send(
+        BaseResponse.fail(
+          statusCode.INTERNAL_SERVER_ERROR,
+          message.INTERNAL_SERVER_ERROR
+        )
+      );
+  }
+};
+
+export default {
+  createReview,
+  getReviews,
+};
