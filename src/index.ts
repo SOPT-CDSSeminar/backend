@@ -3,18 +3,18 @@ import morgan from "morgan";
 import swaggerUi from "swagger-ui-express";
 import config from "./config";
 import swaggerSpecs from "./config/configSwagger";
-import configMongoose from "./data/database/configMongoose";
+import configMongoose from "./loaders/configMongoose";
 
 const app = express();
 
-configMongoose();
+configMongoose(); //connectDB
 
 app.set("port", process.env.PORT || 3000);
 
-app.use(morgan("dev"));
+//app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+//app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 interface ErrorType {
   message: string;
