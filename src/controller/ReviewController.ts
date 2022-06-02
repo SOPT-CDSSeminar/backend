@@ -41,10 +41,10 @@ const createReview = async (req: Request, res: Response) => {
   }
 };
 
-declare function isValidatedParam(param: string): param is "new" | "popular";
+declare function isValidatedParam(param: any): param is "new" | "popular";
 
 const getReviews = async (req: Request, res: Response) => {
-  const { params } = req.params;
+  const params = req.query.sort;
 
   try {
     if (isValidatedParam(params)) {
