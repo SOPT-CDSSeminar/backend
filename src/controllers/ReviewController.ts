@@ -5,6 +5,7 @@ import message from "../modules/responseMessage"
 import { ReviewCreateDto } from "../interfaces/review/ReviewCreateDto";
 import { ReviewService } from "../services";
 import { validationResult } from "express-validator";
+import Review from "../models/Review";
 
 /**
  *  @route POST /review
@@ -29,6 +30,29 @@ const createReview = async (req: Request, res: Response) => {
     }
 }
 
+/**
+ *  @route GET /review
+ *  @desc Get Reviews
+ *  @access Public
+ */
+
+const getReviews = async(req:Request, res:Response) => {
+    const sort:any = req.query.sort //?sort=new|popular
+    try{
+        if (sort){
+            const data = await ReviewService.getReviews(sort);
+            res.status(statusCode.OK).send(util.success(statusCode.OK, message.READ_REVIEW_SUCCESS, data));
+        }else{
+            return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
+        }
+
+    }catch(error){
+        console.log(error);
+        res.status(statusCode.INTERNAL_SERVER_ERROR).send(util.fail(statusCode.INTERNAL_SERVER_ERROR, message.INTERNAL_SERVER_ERROR));
+    }
+}
+
 export default{
-    createReview
+    createReview,
+    getReviews
 }

@@ -10,4 +10,6 @@ router.post('/', [
     body('comment').notEmpty()
 ], ReviewController.createReview);
 
+router.get('/',ReviewController.getReviews);
+
 export default router;

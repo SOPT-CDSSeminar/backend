@@ -1,5 +1,6 @@
 import { PostBaseResponseDto } from "../interfaces/common/PostBaseResponseDto";
 import { ReviewCreateDto } from "../interfaces/review/ReviewCreateDto";
+import { ReviewInfo } from "../interfaces/review/ReviewInfo";
 import Review from "../models/Review";
 
 const createReview = async(reviewCreateDto: ReviewCreateDto): Promise<PostBaseResponseDto> => {
@@ -22,6 +23,23 @@ const createReview = async(reviewCreateDto: ReviewCreateDto): Promise<PostBaseRe
     }
 }
 
+const getReviews = async(query:string) : Promise<ReviewInfo[]|null> => {
+    try {
+        if (query === "new"){
+            const reviews = await Review.find();
+            return reviews;
+        } if (query === "best") {
+            const reviews = await Review.find().sort({ totalAverage: -1 });
+            return reviews;
+        } else{
+            return null;
+        }
+    } catch(error){
+        console.log(error);
+        throw error;
+    }
+} 
 export default {
-    createReview
+    createReview,
+    getReviews
 }

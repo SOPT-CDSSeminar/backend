@@ -4,6 +4,7 @@ import swaggerUi from "swagger-ui-express";
 import config from "./config";
 import swaggerSpecs from "./config/configSwagger";
 import configMongoose from "./loaders/configMongoose";
+import router from "./routes";
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
+app.use(router) //라우터 연결 안되어있었음
 interface ErrorType {
   message: string;
   statusCode: number;
